@@ -1,0 +1,54 @@
+/* Sistema de Ventas · CSS simple para las cinco entidades MVC */
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f1f5f9; color: #243246; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+.navbar { background: #10385f; color: #fff; padding: 17px 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.navbar nav { display: flex; flex-wrap: wrap; gap: 14px; }
+.navbar a { color: #fff; text-decoration: none; }
+.navbar a:hover { color: #ffdc87; }
+.brand { font-size: 19px; font-weight: 800; }
+.container { max-width: 1200px; margin: 28px auto; padding: 0 18px; }
+h1,h2,h3 { color: #10385f; margin-top: 0; }
+a { color: #07599a; }
+.hero, .panel { background: #fff; border-radius: 10px; padding: 25px; box-shadow: 0 3px 14px rgba(18,41,70,.08); }
+.hero { border-left: 5px solid #dab34c; }
+.eyebrow { color: #a57b15; text-transform: uppercase; font-size: 12px; font-weight: bold; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.card { background: white; padding: 22px; border: 1px solid #d8e4f0; border-radius: 8px; color: #173a5b; text-decoration: none; display: flex; flex-direction: column; gap: 9px; }
+.card:hover { border-color: #95b7d3; box-shadow: 0 3px 12px rgba(0,0,0,.06); }
+.card small,.subtle { color: #65748a; }
+.info { padding: 16px; background: #fff7e5; border-radius: 7px; margin-top: 20px; }
+.page-heading { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+.page-heading h1 { margin-bottom: 2px; }
+.page-heading p { margin: 0; color: #64748b; }
+.btn, button { display: inline-block; background: #0d649e; color: white; text-decoration: none; padding: 10px 15px; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; }
+.btn:hover, button:hover { background: #074a78; color: #fff; }
+.btn-secondary { background: #697789; }
+.btn-danger { background: #b52a35; }
+.table-scroll { overflow-x: auto; background: white; border-radius: 9px; box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+table { border-collapse: collapse; width: 100%; min-width: 690px; }
+th,td { text-align: left; padding: 13px; border-bottom: 1px solid #e2e9f0; font-size: 14px; }
+th { color: white; background: #10385f; }
+tbody tr:hover { background: #f3f8fc; }
+.actions { white-space: nowrap; }
+.actions a { margin-right: 10px; }
+.danger-link { color: #b52a35; }
+.empty { margin: 17px; color: #64748b; }
+.form-panel { max-width: 800px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 17px; margin: 20px 0; }
+.field { min-width: 0; }
+label { display: block; font-weight: bold; margin-bottom: 5px; }
+.form-control, textarea, select { width: 100%; max-width: 100%; padding: 10px 12px; border: 1px solid #b7c7d8; border-radius: 6px; background: white; color: #233446; font: inherit; }
+.form-control:focus, textarea:focus, select:focus { outline: 2px solid #93badf; }
+.form-control[disabled], .form-control[readonly] { background: #eff3f7; color: #53667a; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 20px; }
+.validation-summary { color: #9a1f2d; background: #fff1f2; border-radius: 6px; padding: 11px 13px; margin: 13px 0; }
+.validation-summary:empty, .validation-summary.valid { display: none; }
+.text-danger { font-size: 13px; color: #a72233; display: block; }
+.alert-success { padding: 12px; background: #e6f6ec; color: #126b3c; margin-bottom: 14px; border-radius: 6px; }
+.warning { padding: 12px; background: #fff3da; border-radius: 6px; }
+.detail-list { display: grid; grid-template-columns: 175px minmax(0,1fr); gap: 11px; margin: 18px 0; }
+.detail-list dt { font-weight: bold; }
+.detail-list dd { margin: 0; overflow-wrap: anywhere; }
+footer { color: #667a90; padding: 24px; text-align: center; font-size: 13px; }
+@media(max-width:650px) { .form-grid {grid-template-columns:1fr;} .detail-list {grid-template-columns:1fr; gap:2px;} .navbar {padding:15px;} .container {padding:0 10px;} }

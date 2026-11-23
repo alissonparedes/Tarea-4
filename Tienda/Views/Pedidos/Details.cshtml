@@ -1,0 +1,18 @@
+@model TiendaScaffolding.Models.Pedido
+@{ ViewData["Title"] = "Detalles pedido"; }
+<div class="panel form-panel">
+    <h1>Detalles de pedido</h1>
+    <p class="subtle">Todos los cinco atributos de la entidad.</p>
+    
+    <dl class="detail-list">
+        <dt>ID</dt><dd>@Model.PedidoId</dd>
+        <dt>Fecha</dt><dd>@Model.Fecha.ToString("dd/MM/yyyy HH:mm")</dd>
+        <dt>Estado</dt><dd>@Model.Estado</dd>
+        <dt>Observaciones</dt><dd>@Model.Observaciones</dd>
+        <dt>Cliente</dt><dd>@Model.ClienteId — @Model.Cliente.Nombres @Model.Cliente.Apellidos</dd>
+    </dl>
+    <div class="form-actions">
+        <a class="btn" asp-action="Edit" asp-route-id="@Model.PedidoId">Editar</a>
+        <a class="btn btn-secondary" asp-action="Index">Volver al listado</a>
+    </div>
+</div>

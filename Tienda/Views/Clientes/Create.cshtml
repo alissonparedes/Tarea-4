@@ -1,0 +1,35 @@
+@model TiendaScaffolding.Models.Cliente
+@{ ViewData["Title"] = "Crear cliente"; }
+<div class="panel form-panel">
+    <h1>Crear cliente</h1>
+    <form asp-action="Create"  method="post">
+        <div asp-validation-summary="All" class="validation-summary"></div>
+        <div class="form-grid">
+            <div class="field"><label>Identificador (ID)</label><input class="form-control" type="text" value="Automático" disabled /></div>
+            <div class="field">
+                <label asp-for="Nombres">Nombres</label>
+                <input asp-for="Nombres" type="text" class="form-control" required maxlength="120" />
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+            <div class="field">
+                <label asp-for="Apellidos">Apellidos</label>
+                <input asp-for="Apellidos" type="text" class="form-control" required maxlength="120" />
+                <span asp-validation-for="Apellidos" class="text-danger"></span>
+            </div>
+            <div class="field">
+                <label asp-for="Correo">Correo electrónico</label>
+                <input asp-for="Correo" type="email" class="form-control" required maxlength="150" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="field">
+                <label asp-for="Telefono">Teléfono</label>
+                <input asp-for="Telefono" type="tel" class="form-control" required maxlength="20" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn">Guardar registro</button>
+            <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+        </div>
+    </form>
+</div>
