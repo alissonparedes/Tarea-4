@@ -1,0 +1,39 @@
+@model IEnumerable<TiendaScaffolding.Models.Detallespedido>
+@{ ViewData["Title"] = "Detalles de pedido"; }
+<section class="page-heading">
+    <div><h1>Detalles de pedido</h1><p>Listado completo · 5 atributos por entidad, incluido el ID.</p></div>
+    <a class="btn" asp-action="Create">+ Crear detalle de pedido</a>
+</section>
+@if (TempData["Mensaje"] != null)
+{ <div class="alert-success">@TempData["Mensaje"]</div> }
+<div class="table-scroll">
+    <table class="table">
+        <thead><tr>
+                    <th>ID</th>
+                    <th>Pedido</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio unitario (USD)</th>
+                    <th>Acciones</th>
+        </tr></thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                    <td>@item.DetallePedidoId</td>
+                    <td>@item.PedidoId</td>
+                    <td>@item.ProductoId — @item.Producto.Nombre</td>
+                    <td>@item.Cantidad</td>
+                    <td>@item.PrecioUnitario.ToString("N2", System.Globalization.CultureInfo.InvariantCulture)</td>
+                <td class="actions">
+                    <a asp-action="Details" asp-route-id="@item.DetallePedidoId">Ver</a>
+                    <a asp-action="Edit" asp-route-id="@item.DetallePedidoId">Editar</a>
+                    <a class="danger-link" asp-action="Delete" asp-route-id="@item.DetallePedidoId">Eliminar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @if (!Model.Any())
+    { <p class="empty">Todavía no hay registros. Utiliza «Crear» para agregar el primero.</p> }
+</div>

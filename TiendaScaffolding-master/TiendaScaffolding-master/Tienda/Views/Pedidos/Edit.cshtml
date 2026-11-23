@@ -1,0 +1,37 @@
+@model TiendaScaffolding.Models.Pedido
+@{ ViewData["Title"] = "Editar pedido"; }
+<div class="panel form-panel">
+    <h1>Editar pedido</h1>
+    <p class="subtle">Los cinco atributos están representados. El ID es automático y no se modifica.</p>
+    <form asp-action="Edit" asp-route-id="@Model.PedidoId" method="post">
+        <div asp-validation-summary="All" class="validation-summary"></div>
+        <div class="form-grid">
+            <div class="field"><label>Identificador (ID)</label><input class="form-control" type="text" value="@Model.PedidoId" readonly />
+            <input type="hidden" asp-for="PedidoId" /></div>
+            <div class="field">
+                <label asp-for="Fecha">Fecha</label>
+                <input asp-for="Fecha" asp-format="{0:yyyy-MM-ddTHH:mm}" type="datetime-local" class="form-control" required />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="field">
+                <label asp-for="Estado">Estado</label>
+                <input asp-for="Estado" type="text" class="form-control" required maxlength="120" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="field">
+                <label asp-for="Observaciones">Observaciones</label>
+                <textarea asp-for="Observaciones" class="form-control" rows="3" maxlength="255"></textarea>
+                <span asp-validation-for="Observaciones" class="text-danger"></span>
+            </div>
+            <div class="field">
+                <label asp-for="ClienteId">Cliente</label>
+                <select asp-for="ClienteId" asp-items="ViewBag.ClienteId" class="form-control" required><option value="0">Seleccione un cliente</option></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn">Guardar cambios</button>
+            <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+        </div>
+    </form>
+</div>

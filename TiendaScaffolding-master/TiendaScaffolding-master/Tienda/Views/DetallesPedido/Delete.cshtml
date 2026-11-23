@@ -1,0 +1,21 @@
+@model TiendaScaffolding.Models.Detallespedido
+@{ ViewData["Title"] = "Eliminar detalle de pedido"; }
+<div class="panel form-panel">
+    <h1>Eliminar detalle de pedido</h1>
+    <p class="warning">¿Confirmas que deseas eliminar este registro? Si tiene datos relacionados, la eliminación será rechazada.</p>
+    @if (ViewBag.ErrorEliminacion != null) { <div class="validation-summary">@ViewBag.ErrorEliminacion</div> }
+    <dl class="detail-list">
+        <dt>ID</dt><dd>@Model.DetallePedidoId</dd>
+        <dt>Pedido</dt><dd>@Model.PedidoId</dd>
+        <dt>Producto</dt><dd>@Model.ProductoId — @Model.Producto.Nombre</dd>
+        <dt>Cantidad</dt><dd>@Model.Cantidad</dd>
+        <dt>Precio unitario (USD)</dt><dd>@Model.PrecioUnitario.ToString("N2", System.Globalization.CultureInfo.InvariantCulture)</dd>
+    </dl>
+    <div class="form-actions">
+        <form asp-action="Delete" asp-route-id="@Model.DetallePedidoId" method="post">
+            <input type="hidden" asp-for="DetallePedidoId" />
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        </form>
+        <a class="btn btn-secondary" asp-action="Index">Volver al listado</a>
+    </div>
+</div>
